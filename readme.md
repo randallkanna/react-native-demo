@@ -21,9 +21,10 @@ Backend:
 
 First populate your DB
 ```
-npm run populate
+node_modules/babel-cli/bin/babel-node.js populate.js
 ```
 
+next, start the server
 ```
 npm run start
 ```
