@@ -18,3 +18,12 @@ react-native run-ios
 ```
 
 Backend: 
+
+First populate your DB
+```
+npm run populate
+```
+
+```
+npm run start
+```
