@@ -23,7 +23,7 @@ import { connect } from 'react-redux';
 
 export default class People extends Component {
     render() {
-        const { people, loading } = this.props;
+        const { people } = this.props;
 
         return (
             <View style={styles.container}>
