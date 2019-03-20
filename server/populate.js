@@ -6,7 +6,7 @@ const people = [
         name: 'Luke',
         height: "172",
         mass: "77",
-        hair_color: "fair",
+        hair: "fair",
         skin_color: "fair",
         eye_color: "blue",
         gender: "female",

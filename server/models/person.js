@@ -5,7 +5,12 @@ var personSchema = new Schema({
         type: String,
         unique: true,
     }, 
-    band: String,
+    height: String,
+    mass: String,
+    hair: String,
+    skin_color: String,
+    eye_color: String,
+    gender: String,
 })
 
 export default mongoose.model('person', personSchema);
