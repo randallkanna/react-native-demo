@@ -10,9 +10,9 @@ const people = [
         skin_color: "fair",
         eye_color: "blue",
         gender: "female",
-        homeworld: "https://swapi.co/api/planets/1/",
-        films: ["https://swapi.co/api/films/2/"],
-        species: ["https://swapi.co/api/species/1/"]
+        // homeworld: "https://swapi.co/api/planets/1/",
+        // films: ["https://swapi.co/api/films/2/"],
+        // species: ["https://swapi.co/api/species/1/"]
     }
 ]
 
