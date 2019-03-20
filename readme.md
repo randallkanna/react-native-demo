@@ -21,9 +21,18 @@ Backend:
 
 First populate your DB
 ```
-npm run populate
+node_modules/babel-cli/bin/babel-node.js populate.js
 ```
 
+next, start the server
 ```
 npm run start
 ```
+
+You'll be able to see the data by going here:
+```
+http://127.0.0.1:3000/v1/people.json
+```
+
+## Adding Additional Endpoints
+A user can create additional endpoints by adding to the router.js file in the server folder.
