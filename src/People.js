@@ -4,12 +4,27 @@ import {
     View,
     StyleSheet,
     Text,
+    ActivityIndicator, 
+    RefreshControl,
 } from 'react-native';
 import { people } from './fake-data';
 import { Person } from './Person'
+import { connect } from 'react-redux';
+
+@connect(
+    state => ({
+        people: state.people,
+        loading: state.loading,
+    }),
+    dispatch => ({
+        refresh: () => dispatch({type: 'GET_PERSON_DATA'})
+    }),
+)
 
 export default class People extends Component {
     render() {
+        const { people, loading } = this.props;
+
         return (
             <View style={styles.container}>
                 <ScrollView
