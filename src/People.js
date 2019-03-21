@@ -7,9 +7,10 @@ import {
     ActivityIndicator, 
     RefreshControl,
 } from 'react-native';
-import { people } from './fake-data';
+// import { people } from './fake-data'; // this was from the old data
 import { Person } from './Person'
 import { connect } from 'react-redux';
+import { fetchPeople } from './redux';
 
 @connect(
     state => ({
@@ -21,10 +22,18 @@ import { connect } from 'react-redux';
     }),
 )
 
-export default class People extends Component {
+class People extends Component {
     render() {
         const { people } = this.props;
+        debugger;
+        // const { people, loading, refresh } = this.props;
 
+            //   refreshControl={
+            //     <RefreshControl
+            //     refreshing={loading}
+            //     onRefresh={refresh}
+            // />
+            // }
         return (
             <View style={styles.container}>
                 <ScrollView
@@ -44,3 +53,14 @@ const styles = StyleSheet.create({
         paddingLeft: 100,
     }
 })
+
+// function mapStateToProps(state) {
+//     debugger;
+//     return { 
+//         people: state.people,
+//      };
+//   }
+
+//   export default connect(mapStateToProps, { fetchPeople })(People);
+  
+//   export default connect(mapStateToProps, actions)(withRouter(People));

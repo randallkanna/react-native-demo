@@ -4,10 +4,12 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { apiMiddleware, reducer } from './redux';
 import People from './People';
+// import reduxThunk from 'redux-thunk';
 
 const store = createStore(reducer, {}, applyMiddleware(apiMiddleware));
+// const store = createStore(reducer, {}, applyMiddleware(reduxThunk));
 
-store.dispatch({type: 'GET_MOVIE_DATA'});
+store.dispatch({type: 'GET_PERSON_DATA'});
 
 const RouteMapper = (route, navigator) => {
   if (route.name === 'people') {

@@ -16,7 +16,7 @@ export default class Person extends Component {
         const { person } = this.props;
 
         return (
-            <Text>{person}</Text>
+            <Text>{person.name}</Text>
         )
     }
 }
