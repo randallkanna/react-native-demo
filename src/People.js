@@ -22,7 +22,7 @@ import { fetchPeople } from './redux';
     }),
 )
 
-class People extends Component {
+export default class People extends Component {
     render() {
         const { people } = this.props;
         debugger;

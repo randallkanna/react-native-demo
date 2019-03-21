@@ -8,6 +8,10 @@ import { Platform } from 'react-native';
 //     dispatch({ type: FETCH_PEOPLE, payload: res.data });
 //   };
 
+const API = Platform.OS === 'ios'
+  ? 'http://10.0.3.2:3000/v1'
+  : 'http://localhost:3000/v1';
+
 export const apiMiddleware = store => next => action => {
     next(action);
 
