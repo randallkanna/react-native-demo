@@ -8,7 +8,7 @@ import {
     RefreshControl,
 } from 'react-native';
 // import { people } from './fake-data'; // this was from the old data
-import { Person } from './Person'
+import Person from './Person';
 import { connect } from 'react-redux';
 import { fetchPeople } from './redux';
 
@@ -23,19 +23,16 @@ import { fetchPeople } from './redux';
 )
 
 export default class People extends Component {
-    componentDidMount() {
-        // debugger;
-    }
-
     render() {
-        const {people, loading, refresh } = this.props;
-        // debugger;
+        const {loading, refresh } = this.props;
 
         let {listOfPeople} = {};
         if (this.props.people) {
-            listOfPeople = this.props.people.map(function(person) {
+            listOfPeople = this.props.people.map(function(person, index) {
                 return (
-                   <Text>{person.name}</Text>
+                    <View>
+                        <Person key={index} person={person}/>
+                    </View>
                 )
             })
         }
