@@ -23,24 +23,36 @@ import { fetchPeople } from './redux';
 )
 
 export default class People extends Component {
-    render() {
-        const { people } = this.props;
-        debugger;
-        // const { people, loading, refresh } = this.props;
+    componentDidMount() {
+        // debugger;
+    }
 
-            //   refreshControl={
-            //     <RefreshControl
-            //     refreshing={loading}
-            //     onRefresh={refresh}
-            // />
-            // }
+    render() {
+        const {people, loading, refresh } = this.props;
+        // debugger;
+
+        let {listOfPeople} = {};
+        if (this.props.people) {
+            listOfPeople = this.props.people.map(function(person) {
+                return (
+                   <Text>{person.name}</Text>
+                )
+            })
+        }
+
         return (
             <View style={styles.container}>
                 <ScrollView
                     showsHorizontalScrollIndicator={false}
                     showsVerticalScrollIndicator={false}
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={loading}
+                            onRefresh={refresh}
+                        />
+                    }
                 >
-                   {people.map((person, index) => <Text>{person.name}</Text>)}
+               {listOfPeople}    
                 </ScrollView>
             </View>
         )
@@ -63,4 +75,3 @@ const styles = StyleSheet.create({
 
 //   export default connect(mapStateToProps, { fetchPeople })(People);
   
-//   export default connect(mapStateToProps, actions)(withRouter(People));

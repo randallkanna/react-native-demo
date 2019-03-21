@@ -1,38 +1,33 @@
 import { Platform } from 'react-native';
 // import { FETCH_PEOPLE } from './types';
 
+const axios = require('axios');
 // export const fetchPeople = () => async dispatch => {
-//     debugger;
 //     const res = await fetch(`${API}/people.json`);
-//     debugger;
 //     dispatch({ type: FETCH_PEOPLE, payload: res.data });
 //   };
 
-const API = Platform.OS === 'ios'
-  ? 'http://10.0.3.2:3000/v1'
-  : 'http://localhost:3000/v1';
+// const API = Platform.OS === 'ios'
+//   ? 'http://10.0.3.2:3000/v1'
+//   : 'http://localhost:3000/v1';
+
+  const API = 'http://127.0.0.1:3000/v1';
 
 export const apiMiddleware = store => next => action => {
     next(action);
 
-    debugger;
-
     switch(action.type) {
         case 'GET_PERSON_DATA':
             store.dispatch({type: 'GET_PERSON_DATA_LOADING'});
-            debugger;
-            fetch(`${API}/people.json`)
-                .then(response => response.json())
+
+            axios.get(`${API}/people.json`)
+                .then(function(response) {
+                    return response.data.people
+                })
                 .then(data => next({
                     type: 'GET_PERSON_DATA_RECEIVED',
-                    data
-                }))
-                .catch(error => next({
-                    type: 'GET_PERSON_DATA_ERROR',
-                    error
-                }));
-                break;
-                
+                    data,
+                }))  
         default:
                 break;
 
@@ -44,10 +39,12 @@ export const reducer = (state = {people: [], loading: true}, action) => {
         case 'GET_PERSON_DATA_LOADING':
             return {
                 ...state,
+                loading: true,
             }
         case 'GET_PERSON_DATA_RECEIVED':
             return {
-                people: action.data.people
+                people: action.data,
+                loading: false,
             }
         case 'GET_PERSON_DATA_ERROR':
             return state;
