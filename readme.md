@@ -19,12 +19,12 @@ react-native run-ios
 
 Backend: 
 
-First populate your DB
+First populate your DB while in the /server directory
 ```
 node_modules/babel-cli/bin/babel-node.js populate.js
 ```
 
-next, start the server
+next, start the server in the /server directory
 ```
 npm run start
 ```
